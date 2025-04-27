@@ -595,3 +595,49 @@ footer {
   }
 
 }
+
+/* ===== スマホ最適化用 メディアクエリ ===== */
+@media screen and (max-width: 768px) {
+
+  /* ヒーローテキスト（静かに、深く、魅せる。） */
+  .hero-section .overlay-text h1 {
+    font-size: 7vw;
+    /* スマホ用に少し小さく */
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.2;
+    word-break: keep-all;
+  }
+
+  /* ナビゲーションリンク（About, Works, Skills, Contact） */
+  .hero-section nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .hero-section nav a {
+    font-size: 4.5vw;
+    /* スマホでは小さめに */
+    padding: 5px 10px;
+  }
+
+  /* Worksカード内テキスト */
+  .work-cards .card p {
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 4vw;
+    /* 文章も少しだけ小さく自然に */
+  }
+
+  /* ボタン（「Amazonで見る」など）のテキスト */
+  .sns-button a,
+  .work-cards .card a.button {
+    font-size: 4.5vw;
+    padding: 10px 20px;
+  }
+
+}
