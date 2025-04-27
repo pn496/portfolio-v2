@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Takami Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <header class="hero-section">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="video/avatar.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay-text">
+      <h1>静かに、深く、魅せる。</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>福祉・医療法人で広報・WEB運用・人事・会計を担いながら、副業でAIクリエイターとしても活動。
+        漫画制作、電子書籍出版など、表現のフィールドを自在に広げている。
+        冒頭に流れる動画は、自身の姿をもとにAIアバターを生成し、独自プロンプトで命を吹き込んだもの。</p>
+    </section>
+
+    <section id="works">
+      <h2>Works</h2>
+      <div class="work-cards">
+
+        <div class="card">
+          <h3>📖 漫画制作（チームで作画担当）</h3>
+          <a href="https://www.amazon.co.jp/dp/4991402204" target="_blank">
+            <img src="img/manga1.jpg" alt="漫画制作1" class="work-img">
+          </a>
+          <p>心理的安全性をテーマにしたビジネス漫画。<br>全146ページ。2025年3月11日、Amazon週間ベストセラー1位を獲得。</p>
+          <div class="sns-button">
+            <a href="https://www.amazon.co.jp/dp/4991402204" target="_blank">📖 Amazonで見る</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📖 漫画制作（チームで作画担当）</h3>
+          <a href="pdf/aio_server_proposal.pdf" target="_blank">
+            <img src="img/manga2.jpg" alt="漫画制作2" class="work-img">
+          </a>
+          <p>2025年4月納本。企業案件向け提案プロンプト。<br>実際の受注資料を公開。</p>
+          <div class="sns-button">
+            <a href="pdf/aio_server_proposal.pdf" target="_blank">📄 PDFで見る</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🌟 技術研鑽サポート</h3>
+          <img src="img/support.jpg" alt="技術研鑽サポート" class="work-img">
+          <p>技術研鑽の一環として、SNSで使える自分用アバター制作や、簡単なポートフォリオサイト作成のご相談を受付中。<br>ご希望の方はInstagramよりご連絡ください。</p>
+          <div class="sns-button">
+            <a href="https://www.instagram.com/ma_takami/" target="_blank">💬 相談する</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📚 電子書籍出版（ペンネーム：明智ラボ）</h3>
+          <a href="https://x.gd/uPChy" target="_blank">
+            <img src="img/ebook1.jpg" alt="電子書籍出版" class="work-img">
+          </a>
+          <p>ドラゴンと仲間たちの秘密のピクニック物語。<br>英語版を世界市場で出版。</p>
+          <div class="sns-button">
+            <a href="https://x.gd/uPChy" target="_blank">📚 Amazonで見る</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>MidJourney</span>
+        <span>ChatGPT</span>
+        <span>Canva</span>
+        <span>Illustrator</span>
+      </div>
+      <div class="skill-card">
+        <h3>💻 プログラミング</h3>
+        <img src="img/programming.jpg" alt="プログラミング作業風景" class="work-img">
+        <p>独学でスキルを磨き、本サイトも自身のコードでゼロから構築。</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>お仕事やコラボのご相談は、Instagram DMよりお気軽にご連絡ください📩</p>
+      <div class="sns-button">
+        <a href="https://www.instagram.com/ma_takami/" target="_blank">💬 Instagramで連絡する</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Takami. All rights reserved.</p>
+  </footer>
+  <!-- 背景Canvas（粒子アニメ） -->
+  <canvas id="bg-canvas"></canvas>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const canvas = document.getElementById('bg-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function createParticles() {
+        particles = [];
+        for (let i = 0; i < 80; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 4 + 2,
+            speedX: (Math.random() - 0.5) * 0.3,
+            speedY: (Math.random() - 0.5) * 0.3
+          });
+        }
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = 'rgba(255, 182, 193, 0.8)';
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+          p.x += p.speedX;
+          p.y += p.speedY;
+          if (p.x < 0 || p.x > width) p.speedX = -p.speedX;
+          if (p.y < 0 || p.y > height) p.speedY = -p.speedY;
+        });
+      }
+
+      createParticles();
+      setInterval(drawParticles, 30);
+    });
+  </script>
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.05
+    });
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.classList.add('fade-up');
+      observer.observe(card);
+    });
+  </script>
+  <script>
+    window.addEventListener('load', () => {
+      const cutIn = document.createElement('div');
+      cutIn.className = 'cut-in';
+      document.body.appendChild(cutIn);
+
+      setTimeout(() => {
+        cutIn.remove();
+      }, 1200);
+    });
+  </script>
+  <script>
+    window.addEventListener('load', () => {
+      const shine = document.createElement('div');
+      shine.className = 'shine-effect';
+      document.querySelector('.overlay-text').appendChild(shine);
+    });
+  </script>
+
+</body>
+
+</html>
