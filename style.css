@@ -2,7 +2,7 @@
 body {
   background: linear-gradient(180deg, #fff1f7 0%, #f0f4ff 100%);
   color: #333333;
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: 'M PLUS Rounded 1c', 'Zen Maru Gothic', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -82,7 +82,7 @@ p {
 }
 
 strong {
-  color: #f28bc8;
+  color: #d64c8b;
 }
 
 /* ====== Worksカード群 ====== */
@@ -189,8 +189,8 @@ footer {
   left: 50%;
   width: 100%;
   height: 100%;
-  background: rgba(255, 182, 193, 0.4);
-  /* 柔らかいピンクの光 */
+  background: rgba(198, 70, 120, 0.4);
+  /* 落ち着いたローズピンクの光 */
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.5s ease, opacity 0.5s ease;
@@ -265,18 +265,28 @@ footer {
   left: 0;
   width: 120px;
   height: 100%;
-  background: linear-gradient(45deg,
-      rgba(255, 0, 150, 0.4),
+  background: linear-gradient(135deg,
+      rgba(255, 0, 150, 0.5),
+      /* ショッキングピンク強め */
+      rgba(255, 105, 180, 0.5),
+      /* ホットピンク */
       rgba(0, 229, 255, 0.4),
+      /* 水色 */
       rgba(255, 255, 0, 0.3),
-      rgba(0, 255, 170, 0.4));
-  background-size: 400% 400%;
-  animation: rainbowShineStop 8s ease-out forwards;
+      /* 黄色 */
+      rgba(255, 20, 147, 0.5),
+      /* ディープピンク */
+      rgba(0, 255, 170, 0.4)
+      /* ミントグリーン */
+    );
+  background-size: 300% 300%;
+  animation: moveToRight 5s ease-out forwards, rainbowFlow 3s ease-in-out infinite;
   pointer-events: none;
   transform: rotate(25deg);
   border-radius: 10px;
   z-index: 1;
 }
+
 
 /* フェードアップアニメ */
 @keyframes fadeUp {
@@ -707,4 +717,39 @@ footer {
     transform: translateX(340%) rotate(25deg);
     opacity: 1;
   }
+}
+
+@keyframes moveToRight {
+  0% {
+    transform: translateX(0) rotate(25deg);
+  }
+
+  100% {
+    transform: translateX(400px) rotate(25deg);
+  }
+}
+
+@keyframes rainbowFlow {
+  0% {
+    background-position: 0% 50%;
+    filter: blur(10px) saturate(1.2);
+  }
+
+  50% {
+    background-position: 100% 50%;
+    filter: blur(14px) saturate(1.3);
+  }
+
+  100% {
+    background-position: 0% 50%;
+    filter: blur(10px) saturate(1.2);
+  }
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #999;
+  margin-top: -1em;
+  margin-bottom: 2em;
 }
