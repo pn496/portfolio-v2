@@ -287,6 +287,18 @@ footer {
   z-index: 1;
 }
 
+#geometry-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+}
+
 
 /* フェードアップアニメ */
 @keyframes fadeUp {
@@ -725,7 +737,7 @@ footer {
   }
 
   100% {
-    transform: translateX(340px) rotate(25deg);
+    transform: translateX(400px) rotate(25deg);
   }
 }
 
@@ -771,6 +783,16 @@ footer {
     100% {
       transform: translateX(200%) rotate(25deg);
       opacity: 1;
+    }
+  }
+
+  @keyframes moveToRight {
+    0% {
+      transform: translateX(0) rotate(25deg);
+    }
+
+    100% {
+      transform: translateX(200px) rotate(25deg);
     }
   }
 }
