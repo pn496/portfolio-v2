@@ -284,21 +284,24 @@ footer {
   pointer-events: none;
   transform: rotate(25deg);
   border-radius: 10px;
-  z-index: 1;
+  z-index: 3;
+  overflow: hidden;
 }
 
-#geometry-canvas {
+.shine-effect canvas {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 120px;
   height: 100%;
-  z-index: 0;
   pointer-events: none;
-  opacity: 0.25;
-  mix-blend-mode: overlay;
+  z-index: 5;
+  /* ← z-indexを上げて虹色より上へ */
+  mix-blend-mode: multiply;
+  /* ← グラデと混ざるように */
+  opacity: 0.8;
+  /* ← 線が見えるレベルに強調 */
 }
-
 
 /* フェードアップアニメ */
 @keyframes fadeUp {
@@ -792,7 +795,20 @@ footer {
     }
 
     100% {
-      transform: translateX(200px) rotate(25deg);
+      transform: translateX(220px) rotate(25deg);
     }
   }
+}
+
+/* 幾何模様キャンバスを shine-effect に重ねる */
+.shine-effect .geometry-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  z-index: 5;
 }
