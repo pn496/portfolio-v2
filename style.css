@@ -265,10 +265,17 @@ footer {
   left: 0;
   width: 120px;
   height: 100%;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 80%);
-  transform: rotate(25deg);
+  background: linear-gradient(45deg,
+      rgba(255, 0, 150, 0.4),
+      rgba(0, 229, 255, 0.4),
+      rgba(255, 255, 0, 0.3),
+      rgba(0, 255, 170, 0.4));
+  background-size: 400% 400%;
+  animation: rainbowShineStop 8s ease-out forwards;
   pointer-events: none;
-  animation: shine 1.5s ease-out 1;
+  transform: rotate(25deg);
+  border-radius: 10px;
+  z-index: 1;
 }
 
 /* フェードアップアニメ */
@@ -650,4 +657,54 @@ footer {
   height: 100%;
   background: linear-gradient(180deg, rgba(40, 0, 60, 0.2) 0%, rgba(0, 0, 0, 0.35) 100%);
   pointer-events: none;
+}
+
+/* 最初の虹色グラデーションアニメ */
+@keyframes rainbowGlow {
+  0% {
+    color: #ff7eb9;
+  }
+
+  25% {
+    color: #ff65a3;
+  }
+
+  50% {
+    color: #7afcff;
+  }
+
+  75% {
+    color: #ffe985;
+  }
+
+  100% {
+    color: #ff7eb9;
+  }
+}
+
+.rainbow-text {
+  animation: rainbowGlow 6s ease-in-out infinite;
+}
+
+/* 白固定スタイル */
+.white-text {
+  color: #ffffff !important;
+  animation: none !important;
+}
+
+@keyframes rainbowShineStop {
+  0% {
+    transform: translateX(-120%) rotate(25deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateX(340%) rotate(25deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(340%) rotate(25deg);
+    opacity: 1;
+  }
 }

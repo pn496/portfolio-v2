@@ -12,13 +12,13 @@
 
 <body>
   <canvas id="bg-canvas"></canvas>
-
   <header class="hero-section">
-    <div class="dark-overlay"></div>
     <video autoplay muted loop playsinline class="hero-video">
       <source src="video/avatar.mp4" type="video/mp4" />
     </video>
+
     <div class="overlay-text">
+
       <h1>静かに、深く、魅せる。</h1>
       <nav>
         <a href="#about">About</a>
@@ -28,6 +28,8 @@
       </nav>
     </div>
   </header>
+
+
 
   <main>
 
@@ -122,8 +124,6 @@
   </footer>
 
   <!-- 背景Canvas（粒子アニメ） -->
-  <canvas id="bg-canvas"></canvas>
-
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       const canvas = document.getElementById('bg-canvas');
@@ -203,6 +203,25 @@
       const shine = document.createElement('div');
       shine.className = 'shine-effect';
       document.querySelector('.overlay-text').appendChild(shine);
+    });
+  </script>
+  　
+  <script>
+    window.addEventListener('load', () => {
+      const targetElements = document.querySelectorAll('.overlay-text h1, .overlay-text nav a');
+
+      // 最初に虹色クラスを付与
+      targetElements.forEach(el => {
+        el.classList.add('rainbow-text');
+      });
+
+      // 6秒後に白色固定に切り替え
+      setTimeout(() => {
+        targetElements.forEach(el => {
+          el.classList.remove('rainbow-text');
+          el.classList.add('white-text');
+        });
+      }, 6000); // ←ここで虹色持続時間を制御
     });
   </script>
 
