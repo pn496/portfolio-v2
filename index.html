@@ -205,9 +205,60 @@
     window.addEventListener('load', () => {
       const shine = document.createElement('div');
       shine.className = 'shine-effect';
+
+      const geoCanvas = document.createElement('canvas');
+      geoCanvas.className = 'geometry-canvas';
+      geoCanvas.width = 120;
+      geoCanvas.height = 600;
+      shine.appendChild(geoCanvas);
+
       document.querySelector('.overlay-text').appendChild(shine);
+
+      const ctx = geoCanvas.getContext('2d');
+
+      let lines = [];
+
+      function generateLines() {
+        lines = [];
+        for (let i = 0; i < 30; i++) {
+          lines.push({
+            x1: Math.random() * 120,
+            y1: Math.random() * geoCanvas.height,
+            x2: Math.random() * 120,
+            y2: Math.random() * geoCanvas.height,
+            alpha: 0
+          });
+        }
+      }
+
+      function drawSmoothLines() {
+        geoCanvas.height = geoCanvas.offsetHeight;
+        ctx.clearRect(0, 0, geoCanvas.width, geoCanvas.height);
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.6)';
+        ctx.lineWidth = 0.8;
+
+        lines.forEach(line => {
+          line.alpha += 0.02;
+          if (line.alpha > 1) line.alpha = 1;
+          ctx.globalAlpha = line.alpha;
+          ctx.beginPath();
+          ctx.moveTo(line.x1, line.y1);
+          ctx.lineTo(line.x2, line.y2);
+          ctx.stroke();
+        });
+
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(drawSmoothLines);
+      }
+
+      generateLines();
+      drawSmoothLines();
+      setInterval(generateLines, 6000); // 3秒ごとに新しい構造に
+
     });
+
   </script>
+
   　
   <script>
     window.addEventListener('load', () => {
