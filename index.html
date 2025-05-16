@@ -301,29 +301,32 @@
       const prevBtn = document.querySelector('.prev');
       const nextBtn = document.querySelector('.next');
       let currentIndex = 0;
-      const itemWidth = items[0].clientWidth + 16; // 16px は gap
-      const slideDuration = 800; // スライドの移動時間（ms）
-      const autoSlideInterval = 5000; // 自動スライドの間隔（ms）
+      const slideDuration = 800;
+      const autoSlideInterval = 5000;
 
-      // クローンを追加して無限ループ化
+      // クローン作成
       const firstClone = items[0].cloneNode(true);
       const lastClone = items[items.length - 1].cloneNode(true);
 
       carousel.appendChild(firstClone);
       carousel.insertBefore(lastClone, items[0]);
 
-      // 再取得（クローンを含む）
       const allItems = document.querySelectorAll('.carousel-item');
       const totalItems = allItems.length;
 
+      function getItemWidth() {
+        return items[0].clientWidth + 16; // 16pxはgap
+      }
+
       function updateCarousel() {
+        const itemWidth = getItemWidth();
         carousel.style.transition = `${slideDuration}ms ease`;
         carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
       }
 
       function handleNext() {
+        const itemWidth = getItemWidth();
         if (currentIndex >= totalItems - 1) {
-          // 最後のクローンに到達 → リセット
           currentIndex = 1;
           carousel.style.transition = 'none';
           carousel.style.transform = `translateX(-${itemWidth}px)`;
@@ -339,8 +342,8 @@
       }
 
       function handlePrev() {
+        const itemWidth = getItemWidth();
         if (currentIndex <= 0) {
-          // 最初のクローンに到達 → リセット
           currentIndex = totalItems - 2;
           carousel.style.transition = 'none';
           carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
@@ -360,6 +363,9 @@
 
       // 自動スライド
       setInterval(handleNext, autoSlideInterval);
+
+      // リサイズ時の処理
+      window.addEventListener('resize', updateCarousel);
     });
   </script>
 </body>
