@@ -103,20 +103,36 @@
         <span>Social Media Direction</span>
         <span>Digital Publishing</span>
       </div>
-      <div class="skill-card">
-        <h3>💻 Creative Coding</h3>
-        <img src="img/programming.jpg" alt="クリエイティブコーディング風景" class="work-img">
-        <p>デザインとテクノロジーを掛け合わせ、シンプルで使いやすいポートフォリオサイトを制作しています。</p>
+      <h2>アートの断片</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn prev">◀</button>
 
-      </div>
-    </section>
+        <div class="carousel">
+          <div class="carousel-item">
+            <img src="img/skill011.png" alt="AIアート" class="work-img">
+            <p>鳥と猫</p>
+          </div>
+          <div class="carousel-item">
+            <video class="work-img" controls muted>
+              <source src="img/skill01.mp4" type="video/mp4">
+              お使いのブラウザは動画をサポートしていません。
+            </video>
+            <p>AI動画SORA制作</p>
+          </div>
+          <div class="carousel-item">
+            <img src="img/skill02.png" alt="インスタ動画桃色の扇子" class="work-img">
+            <p>桃色の扇子</p>
+          </div>
+          <div class="carousel-item">
+            <video class="work-img" controls muted>
+              <source src="img/skill04.mp4" type="video/mp4">
+              お使いのブラウザは動画をサポートしていません。
+            </video>
+            <p>AI動画SORA制作</p>
+          </div>
+        </div>
 
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>お仕事やコラボのご相談は、Instagram DMよりお気軽にご連絡ください📩</p>
-      <div class="sns-button">
-        <a href="https://www.instagram.com/ma_takami/" target="_blank">💬 Instagramで連絡する</a>
+        <button class="carousel-btn next">▶</button>
       </div>
     </section>
 
@@ -278,7 +294,74 @@
       }, 6000); // ←ここで虹色持続時間を制御
     });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const carousel = document.querySelector('.carousel');
+      const items = document.querySelectorAll('.carousel-item');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      let currentIndex = 0;
+      const itemWidth = items[0].clientWidth + 16; // 16px は gap
+      const slideDuration = 800; // スライドの移動時間（ms）
+      const autoSlideInterval = 5000; // 自動スライドの間隔（ms）
 
+      // クローンを追加して無限ループ化
+      const firstClone = items[0].cloneNode(true);
+      const lastClone = items[items.length - 1].cloneNode(true);
+
+      carousel.appendChild(firstClone);
+      carousel.insertBefore(lastClone, items[0]);
+
+      // 再取得（クローンを含む）
+      const allItems = document.querySelectorAll('.carousel-item');
+      const totalItems = allItems.length;
+
+      function updateCarousel() {
+        carousel.style.transition = `${slideDuration}ms ease`;
+        carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+      }
+
+      function handleNext() {
+        if (currentIndex >= totalItems - 1) {
+          // 最後のクローンに到達 → リセット
+          currentIndex = 1;
+          carousel.style.transition = 'none';
+          carousel.style.transform = `translateX(-${itemWidth}px)`;
+          setTimeout(() => {
+            carousel.style.transition = `${slideDuration}ms ease`;
+            currentIndex++;
+            updateCarousel();
+          }, 50);
+        } else {
+          currentIndex++;
+          updateCarousel();
+        }
+      }
+
+      function handlePrev() {
+        if (currentIndex <= 0) {
+          // 最初のクローンに到達 → リセット
+          currentIndex = totalItems - 2;
+          carousel.style.transition = 'none';
+          carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+          setTimeout(() => {
+            carousel.style.transition = `${slideDuration}ms ease`;
+            currentIndex--;
+            updateCarousel();
+          }, 50);
+        } else {
+          currentIndex--;
+          updateCarousel();
+        }
+      }
+
+      nextBtn.addEventListener('click', handleNext);
+      prevBtn.addEventListener('click', handlePrev);
+
+      // 自動スライド
+      setInterval(handleNext, autoSlideInterval);
+    });
+  </script>
 </body>
 
 </html>
