@@ -812,3 +812,62 @@ footer {
   opacity: 0.8;
   z-index: 5;
 }
+
+#art-fragments {
+  padding: 4em 1em;
+  background-color: #f9f9f9;
+}
+
+#art-fragments h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #6a5acd;
+  margin-bottom: 2em;
+}
+
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.art-item {
+  background: #ffffff;
+  padding: 1em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(106, 90, 205, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(106, 90, 205, 0.2);
+}
+
+.art-item img,
+.art-item video {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+.art-item p {
+  font-size: 1rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .art-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+
+  .art-item {
+    max-width: 100%;
+  }
+}
