@@ -103,36 +103,20 @@
         <span>Social Media Direction</span>
         <span>Digital Publishing</span>
       </div>
-      <h2>アートの断片</h2>
-      <div class="carousel-container">
-        <button class="carousel-btn prev">◀</button>
+      <div class="skill-card">
+        <h3>💻 Creative Coding</h3>
+        <img src="img/programming.jpg" alt="クリエイティブコーディング風景" class="work-img">
+        <p>デザインとテクノロジーを掛け合わせ、シンプルで使いやすいポートフォリオサイトを制作しています。</p>
 
-        <div class="carousel">
-          <div class="carousel-item">
-            <img src="img/skill011.png" alt="AIアート" class="work-img">
-            <p>鳥と猫</p>
-          </div>
-          <div class="carousel-item">
-            <video class="work-img" controls muted>
-              <source src="video/skill01.mp4" type="video/mp4">
-              お使いのブラウザは動画をサポートしていません。
-            </video>
-            <p>AI動画SORA制作</p>
-          </div>
-          <div class="carousel-item">
-            <img src="img/skill02.png" alt="インスタ動画桃色の扇子" class="work-img">
-            <p>桃色の扇子</p>
-          </div>
-          <div class="carousel-item">
-            <video class="work-img" controls muted>
-              <source src="video/skill04.mp4" type="video/mp4">
-              お使いのブラウザは動画をサポートしていません。
-            </video>
-            <p>AI動画SORA制作</p>
-          </div>
-        </div>
+      </div>
+    </section>
 
-        <button class="carousel-btn next">▶</button>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>お仕事やコラボのご相談は、Instagram DMよりお気軽にご連絡ください📩</p>
+      <div class="sns-button">
+        <a href="https://www.instagram.com/ma_takami/" target="_blank">💬 Instagramで連絡する</a>
       </div>
     </section>
 
@@ -294,80 +278,7 @@
       }, 6000); // ←ここで虹色持続時間を制御
     });
   </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const carousel = document.querySelector('.carousel');
-      const items = document.querySelectorAll('.carousel-item');
-      const prevBtn = document.querySelector('.prev');
-      const nextBtn = document.querySelector('.next');
-      let currentIndex = 0;
-      const slideDuration = 800;
-      const autoSlideInterval = 5000;
 
-      // クローン作成
-      const firstClone = items[0].cloneNode(true);
-      const lastClone = items[items.length - 1].cloneNode(true);
-
-      carousel.appendChild(firstClone);
-      carousel.insertBefore(lastClone, items[0]);
-
-      const allItems = document.querySelectorAll('.carousel-item');
-      const totalItems = allItems.length;
-
-      function getItemWidth() {
-        return items[0].clientWidth + 16; // 16pxはgap
-      }
-
-      function updateCarousel() {
-        const itemWidth = getItemWidth();
-        carousel.style.transition = `${slideDuration}ms ease`;
-        carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-      }
-
-      function handleNext() {
-        const itemWidth = getItemWidth();
-        if (currentIndex >= totalItems - 1) {
-          currentIndex = 1;
-          carousel.style.transition = 'none';
-          carousel.style.transform = `translateX(-${itemWidth}px)`;
-          setTimeout(() => {
-            carousel.style.transition = `${slideDuration}ms ease`;
-            currentIndex++;
-            updateCarousel();
-          }, 50);
-        } else {
-          currentIndex++;
-          updateCarousel();
-        }
-      }
-
-      function handlePrev() {
-        const itemWidth = getItemWidth();
-        if (currentIndex <= 0) {
-          currentIndex = totalItems - 2;
-          carousel.style.transition = 'none';
-          carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-          setTimeout(() => {
-            carousel.style.transition = `${slideDuration}ms ease`;
-            currentIndex--;
-            updateCarousel();
-          }, 50);
-        } else {
-          currentIndex--;
-          updateCarousel();
-        }
-      }
-
-      nextBtn.addEventListener('click', handleNext);
-      prevBtn.addEventListener('click', handlePrev);
-
-      // 自動スライド
-      setInterval(handleNext, autoSlideInterval);
-
-      // リサイズ時の処理
-      window.addEventListener('resize', updateCarousel);
-    });
-  </script>
 </body>
 
 </html>
