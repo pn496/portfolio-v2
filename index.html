@@ -107,43 +107,161 @@
         <h3>💻 Creative Coding</h3>
         <img src="img/programming.jpg" alt="クリエイティブコーディング風景" class="work-img">
         <p>デザインとテクノロジーを掛け合わせ、シンプルで使いやすいポートフォリオサイトを制作しています。</p>
-
       </div>
     </section>
     <section id="art-fragments">
       <h2>アートの断片</h2>
       <div class="art-grid">
-        <!-- 画像アイテム -->
         <div class="art-item">
-          <img src="img/skill01.png" alt="アート作品1">
+          <img src="img/skill01.png" alt="鳥と猫">
           <p>鳥と猫</p>
+          <button class="fragment-btn" data-fragment="1">断片を拾う</button>
         </div>
 
         <div class="art-item">
-          <img src="img/skill02.png" alt="アート作品2">
+          <img src="img/skill02.png" alt="桃色の扇子">
           <p>桃色の扇子</p>
+          <button class="fragment-btn" data-fragment="2">断片を拾う</button>
         </div>
 
-        <!-- 動画アイテム -->
         <div class="art-item">
           <video controls>
             <source src="video/skill03.mp4" type="video/mp4">
             お使いのブラウザは動画をサポートしていません。
           </video>
-          <p>投影1</p>
+          <p>投影</p>
+          <button class="fragment-btn" data-fragment="3">断片を拾う</button>
         </div>
-        <!--
-　　　　<div class="art-item">
-          <video controls>
-            <source src="video/skill04.mp4" type="video/mp4">
-            お使いのブラウザは動画をサポートしていません。
-          </video>
-          <p>記録</p>
-        </div>
--->
-      </div>
-    </section>
 
+        <!-- ポップアップ構造 -->
+        <div class="popup" id="popup1">
+          <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>鳥と猫 - 物語の断片</h3>
+            <p>
+              少年と少女は幼い頃、いつも一緒だった。
+              朝陽が差し込む路地裏を駆け抜け、夕暮れの影を追いかけて。
+              笑い声が絶えなかった二人の時間は、まるで永遠に続くように思えた。
+
+              しかし、ある日、少女は突然いなくなった。
+              何も言わず、何も残さず。
+              取り残された少年の心は、見えない檻の中で軋み始める。
+              「あの手を掴んでおけばよかった」
+              喉元に刺さる言葉が、次第に鋭い爪となり、
+              少年の心を締め付ける鳥の足へと姿を変えていく。
+
+              やがて少年はその鳥の足を、紙の上で一本ずつ消していった。
+              消して、消して、消し去って――。
+              消すことで、少女の記憶を檻に閉じ込めようとしたのだ。
+              消えた鳥の足、空虚な籠。
+              その中で少年は、一人ぼっちのまま動けなくなった。
+
+              一方、離れた少女の時間もまた、そこで止まっていた。
+              少年の元を離れたことで、彼女の心は成長を拒んだままだった。
+              あの日のまま、彼の姿が焼き付いて離れない。
+              絵筆を握りしめ、少女は猫を描き続けた。
+              猫の眼は彼を見つめ、猫の手は彼を求めていた。
+              それでも、何かが足りなかった。
+
+              ある日、少女はふと、猫の傍らに鳥の足を描き足した。
+              その瞬間、空から一羽の鳥が舞い降りる。
+              消えたはずの鳥の足、失われたはずの籠。
+              鳥と猫は同じ紙の上で並んで立ち、
+              少女の心に止まったままだった時間が、再び動き出す。
+
+              そして、その時、彼女は気づく。
+              檻に閉じ込めたのは少年だけではなかった。
+              自分の心もまた、消したはずの鳥の足に囚われていたのだと。
+
+              鳥と猫が見つめ合うその絵の中で、
+              二人の時間はようやく解かれ、再び動き出したのだった。
+            </p>
+          </div>
+        </div>
+
+        <div class="popup" id="popup2">
+          <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>桃色の扇子 - 物語の断片</h3>
+            <p>
+              ドリップコーヒーの湯気が立ち上るたび、時の檻は緩やかに揺らぎ始める。
+              香ばしい香りに包まれながら、彼はまたあの桜並木に戻っていた。
+
+              大正の桜並木。青年は仲の良かった兄とよく歩いた道を、一人で歩いていた。
+              兄は戦争に取られ、帰らぬ人となった。
+              散りゆく桜の花びらが頬を撫でるたび、兄の笑顔が脳裏をよぎる。
+
+              一方、同じ桜並木を歩く一人の女性。
+              手に握られた桃色の扇子は、亡き母の形見。
+              「もう一度会いたい――」
+              彼女の心は、今も母の面影を追い続けている。
+
+              ふと、千の風が吹き抜け、扇子が宙に舞う。
+              ひらり、ひらりと舞い踊る桃色の扇子。
+              青年の足元に落ちたそれを拾い上げ、
+              彼は桜の花びらの向こうに立つ少女に近づく。
+
+              「これ、君の？」
+              青年が差し出した扇子を、少女はそっと受け取った。
+              目と目が合った瞬間、二人の時間が一つに溶けた。
+
+              それから幾度もの季節が巡り、二人は交際を重ねた。
+              しかし、再び戦争の足音が近づいてきた。
+              青年は召集令状を握りしめ、少女に約束を告げる。
+              「戻ったら、君を迎えに来る」
+
+              月日は流れ、戦場の風は冷たく吹き荒れた。
+              多くの人が戻らぬ中、桜並木を一人歩く少女。
+              桃色の扇子を手に、彼の帰りを信じて待ち続けた。
+
+              そしてある日、再び千の風が吹く。
+              扇子が舞い、視線を追うと、そこに立っていたのは――。
+
+              「ただいま」
+              戦場から戻った青年が、約束の場所で彼女を見つめていた。
+              桜の花びらが二人を包み込み、時の檻がようやく解かれたのだった。
+            </p>
+          </div>
+        </div>
+
+        <div class="popup" id="popup3">
+          <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>投影の断片</h3>
+            <p>
+              普段の生活の中で、自分の姿を好きに変えることはできない。
+              学校や仕事、家族の目。
+              髪を染めたいと思っても、
+              大胆なスタイルに憧れても、
+              現実にはその一歩が踏み出せない。
+
+              でも、もしも。
+              その小さな「やってみたい」を、映像の中だけでも叶えられるとしたら――。
+
+              ある少女は、ずっと憧れていた銀髪のショートボブを試してみた。
+              誰にも言えなかった自分の中の「本当の自分」が、
+              画面の中で微笑んでいる。
+
+              ある青年は、雑誌のモデルのようなクールなスーツスタイルに身を包んだ。
+              普段は制服とジャージばかりの彼が、
+              その映像の中では自信に満ちた表情でポーズを決めている。
+
+              「こんな自分がいるなんて、思わなかった」
+              それは、現実の自分に寄り添うもう一人の自分。
+              誰にも見せられないけれど、確かにそこに存在する。
+
+              ほんのひととき、夢を映し出す鏡のような映像。
+              その中でだけ叶えられる、小さな冒険。
+              見慣れた自分の顔が、新しい自分に出会う瞬間――。
+
+              あなたもその夢を、一度覗いてみませんか？
+              鏡の中のもう一人のあなたが、
+              きっと優しく手を差し伸べてくれる。
+
+            </p>
+          </div>
+        </div>
+    </section>
     <section id="contact">
       <h2>Contact</h2>
       <p>お仕事やコラボのご相談は、Instagram DMよりお気軽にご連絡ください📩</p>
@@ -310,7 +428,37 @@
       }, 6000); // ←ここで虹色持続時間を制御
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".fragment-btn");
+      const closeButtons = document.querySelectorAll(".close-btn");
 
+      buttons.forEach(button => {
+        button.addEventListener("click", function () {
+          const fragmentId = this.getAttribute("data-fragment");
+          const popup = document.getElementById(`popup${fragmentId}`);
+          if (popup) {
+            popup.style.display = "block";
+            document.body.style.overflow = "hidden";  /* 背景スクロールを停止 */
+          }
+        });
+      });
+
+      closeButtons.forEach(close => {
+        close.addEventListener("click", function () {
+          this.closest(".popup").style.display = "none";
+          document.body.style.overflow = "auto";  /* 背景スクロールを再開 */
+        });
+      });
+
+      window.addEventListener("click", function (e) {
+        if (e.target.classList.contains("popup")) {
+          e.target.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
